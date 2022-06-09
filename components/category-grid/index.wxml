@@ -1,0 +1,13 @@
+<!--components/category-grid/index.wxml-->
+<view class="container">
+    <l-grid class="inner-container"> <!--自定义组件要使用外部样式类-->
+      <block wx:for="{{grid}}">     <!--一组item-->
+      <l-grid-item key="{{index}}" slot="{{index}}">    <!--index默认指定数组序号-->
+          <view class="grid-item">
+            <image class="img" src="{{item.img}}"></image>
+            <text class="text">{{item.title}}</text>
+          </view>
+        </l-grid-item>
+      </block>
+    </l-grid>
+</view>
