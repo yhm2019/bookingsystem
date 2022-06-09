@@ -2,6 +2,7 @@
 //js 业务逻辑/数据绑定
 
 import { config } from "../../config/config"
+import { Banner } from "../../model/banner"
 import { Theme } from "../../model/theme"
 
 Page({
@@ -10,17 +11,27 @@ Page({
    * 页面的初始数据
    */
   data: {
-    topTheme:null,
+    themeA:null,
+    bannerB:null,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: async function (options) {
-      const data = await Theme.getHomeLocationA()
-      this.setData({
-        topTheme:data[0]
-      })
+  onLoad: async function(options){
+      this.initAllData()
+  },
+
+   /**
+   * 初始化所有数据
+   */
+  async initAllData(){
+    const themeA = await Theme.getHomeLocationA()
+    const bannerB = await Banner.getHomeLocationB()
+    this.setData({
+      themeA:themeA[0],
+      bannerB
+    })
   },
 
   /**

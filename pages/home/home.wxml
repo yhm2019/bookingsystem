@@ -1,4 +1,16 @@
 <!--pages/home/home.wxml-->
 <view>
-  <image class="top-theme" src="{{topTheme.entrance_img}}"></image>
+  <image class="top-theme" src="{{themeA.entrance_img}}"></image>
+  <!--自动轮播图-->
+  <swiper class="swiper" indicator-dots="{{true}}"  indicator-color="#157658" autoplay="{{true}}" circular> 
+  <!--indicator-dots指示点，indicator-color指示点颜色，autoplay自动播放,circular循环播放--> 
+  <!--也可以直接写autoplay,默认值为true-->    
+      <block wx:for = "{{bannerB.items}}">
+          <swiper-item>
+              <image class="swiper" src="{{item.img}}"></image>
+          </swiper-item>
+      </block>
+      
+  </swiper>
+   
 </view>
